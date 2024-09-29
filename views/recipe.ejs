@@ -1,0 +1,67 @@
+<% if (locals.emailSuccess){ %>
+  <div class="success-message">
+    Recipe has been sent to your email successfully! Remember to check your spam! <button class="close-success-message">X</button>
+  </div>
+<% } %>
+<%- include('partials/header.ejs') %>
+
+<div class="seatch">
+  <h1 style="text-align: center;"><%= recipe.title %></h1>
+  <div style="width: 100%; display: flex; justify-content: center;">
+    <img src="<%= recipe.image %>" alt="<%= recipe.title %>">
+  </div>
+  <div style="width: 95%; display: flex; justify-content: flex-end;">
+    <button class="email-button">
+      <img style="height: 30px; width: 30px; border-radius: 50%; float: inline-start; margin-right: 3px;" 
+           src="https://e7.pngegg.com/pngimages/298/243/png-clipart-email-address-computer-icons-mail-miscellaneous-angle.png">
+      Email me the recipe!
+    </button>
+    <form id="email-recipe" action="/email-recipe" method="POST">
+      <input type="email" id="email" name="email" required placeholder="Write your email here..."><br>
+      
+      <!-- Hidden fields to pass recipe data -->
+      <input class="hidden" type="hidden" name="title" value="<%= recipe.title %>">
+      <input class="hidden" type="hidden" name="summary" value="<%= recipe.summary %>">
+      <input class="hidden" type="hidden" name="image" value="<%= recipe.image %>">
+      <input class="hidden" type="hidden" name="ingredients" value="<%= JSON.stringify(recipe.extendedIngredients.map(ingredient => ingredient.original)) %>">
+      <input class="hidden" type="hidden" name="instructions" value="<%= recipe.instructions %>">
+
+      
+      <input style="width: fit-content;" type="submit" value="Email it now!">
+    </form>
+  </div>
+  <p><%- recipe.summary %></p>
+  <h2>Ingredients:</h2>
+  <ul>
+    <% recipe.extendedIngredients.forEach(ingredient => { %>
+      <li><%= ingredient.original %></li>
+    <% }) %>
+  </ul>
+  <p>Instructions:</p>
+  <p><%- recipe.instructions %></p>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+
+  $("#email-recipe").hide();
+
+  // Show form and hide button when email button is clicked
+  $(".email-button").on('click', function() {
+    $('#email-recipe').show();
+    $(".email-button").hide();
+    $("#email").focus();
+    $("#email-recipe").addClass('emailme');
+  });
+
+  $('.hidden').css('opacity', '0');
+
+  // Close success message when X is clicked
+  $('.close-success-message').on('click', function() {
+    $('.success-message').fadeOut();
+  });
+</script>
+</body>
+</html>
+

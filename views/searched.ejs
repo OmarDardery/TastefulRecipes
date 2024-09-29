@@ -1,0 +1,27 @@
+<%- include('partials/header.ejs') %>
+
+<h1>Search Results</h1>
+<div class="recipe-list">
+  <% if (recipe && recipe.results && recipe.results.length > 0) { %>
+    <% recipe.results.forEach(recipeItem => { %>
+      <div class="recipe-card" data-id="<%= recipeItem.id %>">
+        <img src="<%= recipeItem.image %>" alt="<%= recipeItem.title %>">
+        <hr />
+        <h3><%= recipeItem.title %></h3>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <p>No recipes found.</p>
+  <% } %>
+</div>
+
+<script>
+  document.querySelectorAll('.recipe-card').forEach(card => {
+    card.addEventListener('click', function() {
+      const recipeId = this.getAttribute('data-id');
+      window.location.href = `/recipe/${recipeId}`;
+    });
+  });
+</script>
+</body>
+</html>

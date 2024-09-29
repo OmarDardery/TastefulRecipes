@@ -1,0 +1,27 @@
+<%- include('partials/header.ejs') %>
+    <form action="/search" method="POST" id="search-form">
+        <input type="number" name="minProtein" placeholder="Min Protein in grams" value="">
+        <input type="number" name="maxProtein" placeholder="Max Protein in grams" value="">
+        <input type="number" name="minCarbs" placeholder="Min Carbs in grams" value="">
+        <input type="number" name="maxCarbs" placeholder="Max Carbs in grams" value="">
+        <input type="number" name="maxFat" placeholder="Max Fats in grams" value="">
+        <input type="text" name="include" placeholder="Must Include..." value="">
+        <select name="diet" id="diet">
+            <option value="">---Select Diet---</option>
+            <option value="gluten free">Gluten Free</option>
+            <option value="ketogenic">Ketogenic</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="lacto_vegetarian">Lacto-Vegetarian</option>
+            <option value="ovo_vegetarian">Ovo-Vegetarian</option>
+            <option value="vegan">Vegan</option>
+            <option value="pescetarian">Pescetarian</option>
+            <option value="paleo">Paleo</option>
+            <option value="primal">Primal</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+    <div class="filler">
+
+    </div>
+</body>
+</html>

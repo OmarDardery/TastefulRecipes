@@ -1,0 +1,32 @@
+<%- include('partials/header.ejs') %>
+<table class="api-parameter-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Example</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr><td>Min Protein</td><td>15</td><td>Minimum amount of protein.</td></tr>
+    <tr><td>Max Protein</td><td>75</td><td>Maximum amount of protein.</td></tr>
+    <tr><td>Min Carbs</td><td>15</td><td>Minimum amount of carbs.</td></tr>
+    <tr><td>Max Carbs</td><td>75</td><td>Maximum amount of carbs.</td></tr>
+    <tr><td>Max Fats</td><td>15</td><td>Maximum amount of fats.</td></tr>
+    <tr><td>Include Igredients</td><td>pasta,tomato</td><td>Put any amount of ingredients seperated with a comma and no space in between, it will return recipes indluding those ingredients.</td></tr>
+    <tr><td>Diet</td><td>Option in dropdown</td><td>List of supported Diets:
+        <li>Gluten Free</li>
+        <li>Ketogenic</li>
+        <li>Vegetarian</li>
+        <li>Lacto-Vegetarian</li>
+        <li>Ovo-Vegetarian</li>
+        <li>Vegan</li>
+        <li>Pescetarian</li>
+        <li>Paleo</li>
+        <li>Primal</li></td></tr>
+    </tbody>
+  </table>
+  
+
+</body>
+</html>
