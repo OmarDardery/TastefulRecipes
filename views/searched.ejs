@@ -7,9 +7,9 @@
       <div class="recipe-card" data-id="<%= recipeItem.id %>">
         <img src="<%= recipeItem.image %>" alt="<%= recipeItem.title %>">
         <hr />
-        <h3><%= recipeItem.title %></h3>
+        <h4><%= recipeItem.title %></h4>
       </div>
-    <% }) %>
+    <% }); %>
   <% } else { %>
     <p>No recipes found.</p>
   <% } %>

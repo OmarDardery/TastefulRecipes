@@ -8,10 +8,8 @@
 <div class="seatch">
   <h1 style="text-align: center;"><%= recipe.title %></h1>
   <div style="width: 100%; display: flex; justify-content: center;">
-    <img src="<%= recipe.image %>" alt="<%= recipe.title %>">
+    <img style="max-width: 300px;" src="<%= recipe.image %>" alt="<%= recipe.title %>">
   </div>
-  <%#
-    %>
   
   <p><%- recipe.summary %></p>
   <h2>Ingredients:</h2>
@@ -28,22 +26,8 @@
 
 <script>
 
-  $("#email-recipe").hide();
 
-  // Show form and hide button when email button is clicked
-  $(".email-button").on('click', function() {
-    $('#email-recipe').show();
-    $(".email-button").hide();
-    $("#email").focus();
-    $("#email-recipe").addClass('emailme');
-  });
-
-  $('.hidden').css('opacity', '0');
-
-  // Close success message when X is clicked
-  $('.close-success-message').on('click', function() {
-    $('.success-message').fadeOut();
-  });
+ 
 </script>
 </body>
 </html>
