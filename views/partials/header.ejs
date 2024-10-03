@@ -35,7 +35,7 @@
             position: fixed;
             left: 0;
             height: fit-content;
-            opacity: 0.9;
+            z-index: 100;
         }
         .header *{
             opacity: 1;
@@ -102,13 +102,15 @@
         }
         .recipe-list{
             width: 96%;
-            columns: 170px;
+            columns: 217px;
             height: max-content;
             justify-items: center;
             justify-content: center;
             align-items: center;
             left: 0;
             margin: 0px;
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
         }
         .recipe-card{
             left: 0;
@@ -124,6 +126,12 @@
             cursor: pointer;
             height: fit-content;
             break-inside: avoid;
+            transition: .2s ease-in-out;
+        }
+        .recipe-card:hover{
+            background-color: #3795BD;
+            color: #F7F7F8;
+            transform: translateZ(20px);
         }
         p{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
@@ -186,6 +194,11 @@
         .recipe-card h4{
             text-align: center;
         }
+        @media (max-width: 768px) {
+            .recipe-list{
+                columns: 150px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -193,6 +206,6 @@
         <h1><a href="/"><span class="tasteful">Tasteful</span> <span style="color: #F7F7F8;">Recipes</span></a></h1>
         <h4>(A backend Web Dev Project By Omar Ahmed El-Dardery)</h4>
     </div>
-    <div style="height: 195px; width: 100%;">
+    <div style="height: 185px; width: 100%;">
 
     </div>
