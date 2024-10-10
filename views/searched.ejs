@@ -1,20 +1,21 @@
 <%- include('partials/header.ejs') %>
 
 <h1>Search Results</h1>
-<div class="recipe-list">
-  <% if (recipe && recipe.results && recipe.results.length > 0) { %>
-    <% recipe.results.forEach(recipeItem => { %>
-      <div class="recipe-card" data-id="<%= recipeItem.id %>">
-        <img src="<%= recipeItem.image %>" alt="<%= recipeItem.title %>">
-        <hr />
-        <h4><%= recipeItem.title %></h4>
-      </div>
-    <% }) %>
-  <% } else { %>
-    <p>No recipes found.</p>
-  <% } %>
+<div style="display: flex; justify-content: center; width: 100%;">
+  <div class="recipe-list">
+    <% if (recipe && recipe.results && recipe.results.length > 0) { %>
+      <% recipe.results.forEach(recipeItem => { %>
+        <div class="recipe-card" data-id="<%= recipeItem.id %>">
+          <img src="<%= recipeItem.image %>" alt="<%= recipeItem.title %>">
+          <hr />
+          <h4><%= recipeItem.title %></h4>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p>No recipes found.</p>
+    <% } %>
+  </div>
 </div>
-
 <script>
   document.querySelectorAll('.recipe-card').forEach(card => {
     card.addEventListener('click', function() {
